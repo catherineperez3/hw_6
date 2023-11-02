@@ -1,0 +1,26 @@
+---
+title: "hw_6"
+authors: Danielle Jones Katie Perez
+format: pdf
+execute:
+  eval: true
+  echo: false
+fig-width: 6.5
+fig-height: 8
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(here)
+library(dplyr)
+library(readr)
+getwd()
+set_here()
+#data <- read_csv(here("star.csv"))
+#here(data(star.csv))
+#read_csv(star.csv)
+data<- read.csv(here("data/star.csv"))
+
+head(data)
+```
