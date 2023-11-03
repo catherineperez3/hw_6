@@ -1,6 +1,6 @@
 ---
 title: "hw_6"
-authors: Danielle Jones Katie Perez
+authors: Danielle Jones & Katie Perez
 format: pdf
 execute:
   eval: true
@@ -26,3 +26,19 @@ data<- read.csv(here("data/star.csv"))
 
 head(data)
 ```
+
+# In-text citation examples
+
+@shock2001cause
+
+@jones2016conversational
+
+@gude2007biodiversity
+
+@tidyverse
+
+@R
+
+\newpage
+
+# References
