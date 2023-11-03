@@ -8,6 +8,8 @@ execute:
 fig-width: 6.5
 fig-height: 8
 editor: visual
+bibliography: references.bib
+link-citations: true
 ---
 
 ```{r}
