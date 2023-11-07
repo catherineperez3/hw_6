@@ -1,7 +1,7 @@
 ---
 title: "hw_6"
 authors: Danielle Jones & Katie Perez
-format: pdf
+format: html
 execute:
   eval: true
   echo: false
@@ -39,9 +39,6 @@ head(data)
 
 [see @tidyverse; @R]
 
-
-
-
 \newpage
 
 # References
@@ -49,18 +46,24 @@ head(data)
 \newpage
 
 # Commit 3 Table
+
+### This table breaks down the mean math scores, the standard deviation of math scores, the mean reading scores, and the standard deviation of reading scores by gender and by eligibility for free and reduced price lunch.
 ```{r}
 data1 <- data %>% 
+    group_by(sex, frl) %>% 
   mutate(math_mean = mean(tmathss),
             math_sd = sd(tmathss),
             rdg_mean = mean(treadss),
             rdg_sd = sd(treadss))
+
+
 
 table1 <- data1 %>% 
   group_by(sex, frl) %>% 
   summarize(across(c(math_mean:rdg_sd), 
                    ~mean(., na.rm = TRUE))) %>% 
   kable() 
+table1
 ```
 
 
