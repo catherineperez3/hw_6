@@ -17,6 +17,8 @@ library(tidyverse)
 library(here)
 library(dplyr)
 library(readr)
+library(knitr)
+library(gt)
 getwd()
 set_here()
 #data <- read_csv(here("star.csv"))
@@ -35,10 +37,32 @@ head(data)
 
 @gude2007biodiversity
 
-@tidyverse
+[see @tidyverse; @R]
 
-@R
+
+
 
 \newpage
 
 # References
+
+\newpage
+
+# Commit 3 Table
+```{r}
+data1 <- data %>% 
+  mutate(math_mean = mean(tmathss),
+            math_sd = sd(tmathss),
+            rdg_mean = mean(treadss),
+            rdg_sd = sd(treadss))
+
+table1 <- data1 %>% 
+  group_by(sex, frl) %>% 
+  summarize(across(c(math_mean:rdg_sd), 
+                   ~mean(., na.rm = TRUE))) %>% 
+  kable() 
+```
+
+
+
+
