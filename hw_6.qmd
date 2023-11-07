@@ -48,6 +48,7 @@ head(data)
 # Commit 3 Table
 
 ### This table breaks down the mean math scores, the standard deviation of math scores, the mean reading scores, and the standard deviation of reading scores by gender and by eligibility for free and reduced price lunch.
+
 ```{r}
 data1 <- data %>% 
     group_by(sex, frl) %>% 
@@ -66,6 +67,24 @@ table1 <- data1 %>%
 table1
 ```
 
+# Commit 4 plot
 
-
+### This sacatter plot compares the math scores with the teacher experience. The regression lines are separated by eligibility for free and reduced price lunch status.
+```{r}
+data$frl[data$frl=="yes"]<-"Free/Recuded Price Meals"
+data$frl[data$frl=="no"]<-"Paid Meals"
+data$frl[data$]
+plot1<- ggplot(data, aes(totexp,tmathss, fill=frl))+
+  geom_point(color= "light gray")+
+  geom_smooth(method=lm)+
+  theme_minimal()+
+  labs(title = "Relation between teacher experience and math scores",
+       subtitle = "Separate regression lines displayed by free/reduced price lunch status",
+       x="Teacher Experience (years)",
+       y="Total Math Scale Score",
+       fill = "Lunch Status")
+ 
+plot1
+plot1+ theme(legend.position = "bottom")
+```
 
