@@ -1,6 +1,6 @@
 ---
 title: "hw_6"
-authors: Danielle Jones Katie Perez
+authors: Danielle Jones & Katie Perez
 format: pdf
 execute:
   eval: true
@@ -8,6 +8,8 @@ execute:
 fig-width: 6.5
 fig-height: 8
 editor: visual
+bibliography: references.bib
+link-citations: true
 ---
 
 ```{r}
@@ -15,6 +17,8 @@ library(tidyverse)
 library(here)
 library(dplyr)
 library(readr)
+library(knitr)
+library(gt)
 getwd()
 set_here()
 #data <- read_csv(here("star.csv"))
@@ -24,3 +28,41 @@ data<- read.csv(here("data/star.csv"))
 
 head(data)
 ```
+
+# In-text citation examples
+
+@shock2001cause
+
+@jones2016conversational
+
+@gude2007biodiversity
+
+[see @tidyverse; @R]
+
+
+
+
+\newpage
+
+# References
+
+\newpage
+
+# Commit 3 Table
+```{r}
+data1 <- data %>% 
+  mutate(math_mean = mean(tmathss),
+            math_sd = sd(tmathss),
+            rdg_mean = mean(treadss),
+            rdg_sd = sd(treadss))
+
+table1 <- data1 %>% 
+  group_by(sex, frl) %>% 
+  summarize(across(c(math_mean:rdg_sd), 
+                   ~mean(., na.rm = TRUE))) %>% 
+  kable() 
+```
+
+
+
+
